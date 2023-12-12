@@ -1,0 +1,54 @@
+<div class="container my-5">
+  <h1 class="my-3">ADD NEW STUDENT</h1>
+  <form #form="ngForm" (ngSubmit)="addnewstudent()" novalidate class="col-7">
+    <div class="mb-3">
+        <div class="mb-3">
+        <label for="Dp" class="form-label">Profile Image</label>
+        <input type="file" class="form-control" id="Dp" accept="image/*" (change)="onFileSelected($event)" required/>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="Firstname" class="form-label">First Name</label>
+          <input type="text" placeholder="First Name" class="form-control" id="Firstname" 
+          name="firstname" [(ngModel)]="addstudent.firstName" required/>
+        </div>
+        <div class="col">
+          <label for="Secondname" class="form-label">Second Name</label>
+          <input type="text"placeholder="Second Name" class="form-control" id="Secondname"  
+          name="lastname" [(ngModel)]="addstudent.lastName" required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="Mobilenumber" class="form-label">Mobile Number</label>
+          <input type="number" placeholder="0777 897 458" class="form-control" id="Mobilenumber"  
+          name="mobilenumber" [(ngModel)]="addstudent.mobile" required/>
+        </div>
+        <div class="col">
+          <label for="Email" class="form-label">Email</label>
+          <input type="email" placeholder="example@example.example" class="form-control" id="Email"  
+          name="email" [(ngModel)]="addstudent.email"required/>
+        </div>
+      </div>
+            <div class="row">
+        <div class="col">
+          <label for="Nic" class="form-label">Nic</label>
+          <input type="number" placeholder="789456123" class="form-control" id="Nic" 
+          name="nic" [(ngModel)]="addstudent.nic" required />
+        </div>
+        <div class="col">
+          <label for="Dob" class="form-label">Date Of Birth</label>
+          <input type="date"  class="form-control" id="Dob"
+          name="dob" [(ngModel)]="addstudent.dateOfBirth" required />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="Addres" class="form-label">Addres</label>
+        <input type="text" placeholder="2/A,main st,Colombo" class="form-control" id="Addres" 
+          name="addres" [(ngModel)]="addstudent.address" required />
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

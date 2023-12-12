@@ -1,0 +1,51 @@
+<div class="container mt-3">
+  <a routerLink="/addstudent" class="btn btn-primary mb-3 btn-sm" role="button">Registr New Student</a>
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    class="table display nowrap dataTable dtr-inline collapsed"
+    *ngIf="students && students.length > 0"
+  >
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-center">FirstName</th>
+        <th class="text-center">LastName</th >
+        <th class="text-center">Mobile</th >
+        <th class="text-center">Email</th >
+        <th class="text-center">NIC</th >
+        <th class="text-center">DateOfBirth</th >
+        <th class="text-center">Address</th >
+        <th ></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        id="tr"
+        (click)="opendialog(student)"
+        *ngFor="let student of students"
+      >
+        <td>
+          <img
+            [src]="student.profileImageUrl"
+            alt="img"
+            width="35"
+            height="35"
+          />
+        </td>
+        <td class="text-center">{{ student.firstName }}</td>
+        <td class="text-center">{{ student.lastName }}</td>
+        <td class="text-center">{{ student.mobile }}</td>
+        <td class="text-center">{{ student.email }}</td>
+        <td class="text-center">{{ student.nic }}</td>
+        <td class="text-center">{{ student.dateOfBirth | date }}</td>
+        <td class="text-center"> {{ student.address }}</td>
+        <td class="text-center"><a [routerLink]="['/students', student.studentId]"> Edit </a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!students || students.length <= 0">
+    <h1>No Any Stuents Regesterd</h1>
+  </div>
+</div>

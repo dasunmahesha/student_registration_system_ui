@@ -1,0 +1,148 @@
+<div class="container my-5">
+  <div class="card">
+    <div class="card-body">
+      <div class="row justify-content-center">
+        <div class="text-center">
+          <img
+            class="img"
+            [src]="studentDetail.profileImageUrl"
+            alt="img"
+            width="100"
+            height="100"
+          />
+        </div>
+      </div>
+
+      <form #form="ngForm" (ngSubmit)="updatestudent()" novalidate class="col-7s">
+        <div class="mb-3">
+
+      <div class="col">
+        <label for="id" class="form-label">Id</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          name="id"
+          [(ngModel)]="studentDetail.studentId"
+          readonly
+        />
+      </div>
+
+      <div class="col">
+        <div class="mb-3">
+          <label for="Dp" class="form-label">Profile Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="Dp"
+            accept="image/*"
+            (change)="onFileSelected($event)"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="Firstname" class="form-label">First Name</label>
+          <input
+            type="text"
+            placeholder="Dasun"
+            class="form-control"
+            id="Firstname"
+            name="firstname"
+            [(ngModel)]="studentDetail.firstName"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="Secondname" class="form-label">Second Name</label>
+          <input
+            type="text"
+            placeholder="Mahesha"
+            class="form-control"
+            id="Secondname"
+            name="lastname"
+            [(ngModel)]="studentDetail.lastName"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="Mobilenumber" class="form-label">Mobile Number</label>
+          <input
+            type="number"
+            placeholder="0777 897 458"
+            class="form-control"
+            id="Mobilenumber"
+            name="mobilenumber"
+            [(ngModel)]="studentDetail.mobile"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="Email" class="form-label">Email</label>
+          <input
+            type="email"
+            placeholder="example@example.example"
+            class="form-control"
+            id="Email"
+            name="email"
+            [(ngModel)]="studentDetail.email"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="Nic" class="form-label">Nic</label>
+          <input
+            type="number"
+            placeholder="789456123"
+            class="form-control"
+            id="Nic"
+            name="nic"
+            [(ngModel)]="studentDetail.nic"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="Dob" class="form-label">Date Of Birth</label>
+          <input
+            type="date"
+            class="form-control"
+            id="Dob"
+            name="dob"
+            [(ngModel)]="studentDetail.dateOfBirth"
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="Addres" class="form-label">Addres</label>
+        <input
+          type="text"
+          placeholder="2/A,main st,Colombo"
+          class="form-control"
+          id="Addres"
+          name="addres"
+          [(ngModel)]="studentDetail.address"
+          required
+        />
+      </div>
+   </div>
+        <div class="row">
+          <div class="col">
+            <button type="submit" [disabled]="!form.valid" class="btn btn-primary ">
+              Save
+            </button>
+          </div>
+          <div class="col">
+            <button type="button" (click)="deletestudent(studentDetail.studentId.toString())" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
